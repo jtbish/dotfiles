@@ -17,12 +17,17 @@ command! PackStatus call minpac#status()
 command! PackUpdateAndQuit call minpac#update('', {'do': 'quit'})
 
 " =============================================================================
-" plugins
+" plugin sources
+" =============================================================================
+call minpac#add('dense-analysis/ale')
+call minpac#add('altercation/vim-colors-solarized')
+
+" =============================================================================
+" plugin settings
 " =============================================================================
 " -----------------------------------------------------------------------------
 " ale
 " -----------------------------------------------------------------------------
-call minpac#add('dense-analysis/ale')
 let g:ale_linters = {
 \	'python': ['flake8']
 \}
@@ -41,7 +46,6 @@ let g:ale_sign_column_always = 1
 " -----------------------------------------------------------------------------
 " solarized
 " -----------------------------------------------------------------------------
-call minpac#add('altercation/vim-colors-solarized')
 syntax enable
 set background=dark
 colorscheme solarized
