@@ -1,0 +1,52 @@
+# =============================================================================
+# bashrc Customisations
+# =============================================================================
+# -----------------------------------------------------------------------------
+# Aliases
+# -----------------------------------------------------------------------------
+alias ll="ls -AhlF"
+alias ..="cd .."
+alias c="clear"
+alias l="ls"
+alias rmd="rm -rf"
+# hibernate on ubuntu
+alias hib="sudo systemctl hibernate"
+# use neovim instead of vim
+alias vim="nvim"
+
+# -----------------------------------------------------------------------------
+# Functions
+# -----------------------------------------------------------------------------
+function cdl {
+    cd "$1" && ls;
+}
+
+function cdll {
+    cd "$1" && ll;
+}
+
+function ..l {
+    cd .. && ls;
+}
+
+function ..ll {
+    cd .. && ll;
+}
+
+function bu {
+	cp -r "$1"{,.backup};
+}
+
+# -----------------------------------------------------------------------------
+# Neovim
+# -----------------------------------------------------------------------------
+export VIMCONFIG=~/.config/nvim
+export VIMDATA=~/.local/share/nvim
+export VISUAL='nvim'
+
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    # change prompt to make nvim terminal easy to distinguish
+    export PS1="$PS1>> "
+    # avoid nvim nesting by printing a warning message
+    alias nvim='echo "No nesting!"'
+fi
