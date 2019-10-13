@@ -32,16 +32,17 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 noremap <F2> :ALEFix<CR>
-let g:ale_lint_on_text_changed = 'always' 
-let g:ale_lint_on_save = 1               
-let g:ale_lint_on_enter = 1             
-let g:ale_lint_on_filetype_changed = 1 
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_filetype_changed = 1
 let g:ale_sign_column_always = 1
 
 " -----------------------------------------------------------------------------
 " solarized
 " -----------------------------------------------------------------------------
 call minpac#add('altercation/vim-colors-solarized')
+syntax enable
 set background=dark
 colorscheme solarized
 
@@ -52,7 +53,7 @@ colorscheme solarized
 " buffers
 " -----------------------------------------------------------------------------
 " enable hidden buffers
-set hidden 
+set hidden
 
 " -----------------------------------------------------------------------------
 " files
@@ -66,7 +67,6 @@ set path+=**
 " formatting
 " -----------------------------------------------------------------------------
 set textwidth=79
-syntax enable
 " number of visual spaces per tab to display when reading a file
 set tabstop=4
 " number of spaces per tab when inserting tab while editing a file
@@ -86,9 +86,9 @@ set autoindent
 nnoremap j gj
 nnoremap k gk
 " show (absolute) line numbers
-set number 
+set number
 " show (relative) line numbers
-set relativenumber 
+set relativenumber
 " highlight the line the cursor is on
 set cursorline
 " make backspace work like 'normal'
