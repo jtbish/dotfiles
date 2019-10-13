@@ -59,18 +59,10 @@ echo -e "\n"
 # -----------------------------------------------------------------------------
 # tmux
 # -----------------------------------------------------------------------------
-echo "Backing up existing tmux environment..."
-# remove old backups
-rm -rf ~/.tmux.backup
-# make new backups
+echo "Backing up existing tmux config..."
 cp ~/.tmux.conf ~/.tmux.conf.backup
-cp -r ~/.tmux ~/.tmux.backup
 
-echo "Creating clean tmux environment..."
-rm -rf ~/.tmux
-mkdir ~/.tmux
-
-echo "Copying tmux config into environment..."
+echo "Replacing existing tmux config..."
 cp .tmux.conf ~/.tmux.conf
 
 echo -e "\n"
