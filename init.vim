@@ -48,9 +48,13 @@ colorscheme solarized
 filetype plugin on
 
 " -----------------------------------------------------------------------------
-" buffers
+" buffers / windows
 " -----------------------------------------------------------------------------
 set hidden
+" open vertical split on right
+set splitright
+" open horizontal split below
+set splitbelow
 
 " -----------------------------------------------------------------------------
 " files
@@ -98,14 +102,6 @@ set backspace=indent,eol,start
 set hlsearch
 " search as characters are entered
 set incsearch
-
-" -----------------------------------------------------------------------------
-" windows
-" -----------------------------------------------------------------------------
-" open vertical split on right
-set splitright
-" open horizontal split below
-set splitbelow
 
 " =============================================================================
 " commands / key mappings / abbreviations
