@@ -29,14 +29,9 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
-\	'python': ['add_blank_lines_for_python_control_statements', 'isort', 'yapf']
+\	'python': ['isort', 'yapf']
 \}
 let g:ale_fix_on_save = 1
-noremap <F2> :ALEFix<CR>
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_filetype_changed = 1
 let g:ale_sign_column_always = 1
 
 " -----------------------------------------------------------------------------
@@ -49,10 +44,12 @@ colorscheme solarized
 " =============================================================================
 " in-built settings
 " =============================================================================
+" for netrw
+filetype plugin on
+
 " -----------------------------------------------------------------------------
 " buffers
 " -----------------------------------------------------------------------------
-" enable hidden buffers
 set hidden
 
 " -----------------------------------------------------------------------------
@@ -78,11 +75,6 @@ set expandtab
 set shiftwidth=4
 " automatically indent to previous line's level on new line
 set autoindent
-
-" -----------------------------------------------------------------------------
-" general
-" -----------------------------------------------------------------------------
-filetype plugin on
 
 " -----------------------------------------------------------------------------
 " navigation
@@ -116,19 +108,15 @@ set splitright
 set splitbelow
 
 " =============================================================================
-" commands
+" commands / key mappings / abbreviations
 " =============================================================================
-" writing buffer as root
+" write buffer as root
 command Wroot :write !sudo tee % > /dev/null
-
-" =============================================================================
-" key mappings
-" =============================================================================
 " change leader to spacebar
 nnoremap <Space> <Nop>
 let mapleader="\<Space>"
-" convenient expansion of active file directory for ex mode
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+" vertical split and find
+cabbrev vsf vert sf
 
 " =============================================================================
 " nvim specific settings
@@ -136,11 +124,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 if has('nvim')
     " get out of terminal mode using esc
     tnoremap <Esc> <C-\><C-n>
-
     " allow sending esc to underlying terminal program
     tnoremap <C-v><Esc> <C-c>
-
-    " make terminal cursor look different to normal cursor (red)
-    highlight! link TermCursor Cursor
-    highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
