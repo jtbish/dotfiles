@@ -113,6 +113,9 @@ nnoremap <Space> <Nop>
 let mapleader="\<Space>"
 " vertical split and find
 cabbrev vsf vert sf
+" shortcut for muting search highlighting (builds on top of existing CTRL-L,
+" which redraws screen)
+nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
 
 " =============================================================================
 " nvim specific settings
