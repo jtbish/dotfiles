@@ -31,7 +31,7 @@ let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
 \	'python': ['isort', 'yapf']
 \}
-let g:ale_fix_on_save = 1
+nmap <F2> <Plug>(ale_fix)
 let g:ale_sign_column_always = 1
 
 " -----------------------------------------------------------------------------
