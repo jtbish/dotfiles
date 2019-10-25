@@ -110,7 +110,7 @@ set hlsearch
 set incsearch
 
 " =============================================================================
-" commands / key mappings / abbreviations
+" autocommands/ commands / key mappings / abbreviations
 " =============================================================================
 " write buffer as root
 command Wroot :write !sudo tee % > /dev/null
@@ -122,6 +122,8 @@ cabbrev vsf vert sf
 " shortcut for muting search highlighting (builds on top of existing CTRL-L,
 " which redraws screen)
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
+" execute ctags under working dir every time after a buffer is written
+autocmd BufWritePost * call system("ctags -R")
 
 " =============================================================================
 " nvim specific settings
