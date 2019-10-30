@@ -115,7 +115,7 @@ set hlsearch
 set incsearch
 
 " =============================================================================
-" autocommands/ commands / key mappings / abbreviations
+" general (autocommands/ commands / key mappings / abbreviations)
 " =============================================================================
 " write buffer as root
 command Wroot :write !sudo tee % > /dev/null
@@ -127,8 +127,45 @@ cabbrev vsf vert sf
 " shortcut for muting search highlighting (builds on top of existing CTRL-L,
 " which redraws screen)
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
-" execute ctags under working dir every time after a buffer is written
-autocmd BufWritePost * call system("ctags -R")
+
+" =============================================================================
+" bracket mappings (borrowed from unimpaired.vim plugin)
+" =============================================================================
+" args list
+nnoremap <silent> [a :previous<CR>
+nnoremap <silent> ]a :next<CR>
+nnoremap <silent> [A :first<CR>
+nnoremap <silent> ]A :last<CR>
+
+" buffer list
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
+" location list
+nnoremap <silent> [l :lprevious<CR>
+nnoremap <silent> ]l :lnext<CR>
+nnoremap <silent> [L :lfirst<CR>
+nnoremap <silent> ]L :llast<CR>
+nnoremap <silent> [<C-L> :lpfile<CR>
+nnoremap <silent> ]<C-L> :lnfile<CR>
+
+" quickfix list
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [Q :cfirst<CR>
+nnoremap <silent> ]Q :clast<CR>
+nnoremap <silent> [<C-Q> :cpfile<CR>
+nnoremap <silent> ]<C-Q> :cnfile<CR>
+
+" tag list
+nnoremap <silent> [t :tprevious<CR>
+nnoremap <silent> ]t :tnext<CR>
+nnoremap <silent> [T :tfirst<CR>
+nnoremap <silent> ]T :tlast<CR>
+nnoremap <silent> [<C-T> :ptprevious<CR>
+nnoremap <silent> ]<C-T> :ptnext<CR>
 
 " =============================================================================
 " nvim specific settings
