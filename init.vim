@@ -33,6 +33,11 @@ let g:ale_fixers = {
 \}
 nmap <F2> <Plug>(ale_fix)
 let g:ale_sign_column_always = 1
+" unimpaired.vim style mappings for traversing errors
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> ]W <Plug>(ale_last)
 
 " -----------------------------------------------------------------------------
 " solarized
