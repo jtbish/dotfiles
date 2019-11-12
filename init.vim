@@ -127,6 +127,9 @@ cabbrev vsf vert sf
 " shortcut for muting search highlighting (builds on top of existing CTRL-L,
 " which redraws screen)
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
+" ctags
+command! MakeTags !ctags -R .
+nnoremap <silent> <F3> :MakeTags<CR>
 
 " =============================================================================
 " bracket mappings (borrowed from unimpaired.vim plugin)
