@@ -118,7 +118,7 @@ set incsearch
 " general (autocommands/ commands / key mappings / abbreviations)
 " =============================================================================
 " write buffer as root
-command Wroot :write !sudo tee % > /dev/null
+command! Wroot :write !sudo tee % > /dev/null
 " change leader to spacebar
 nnoremap <Space> <Nop>
 let mapleader="\<Space>"
