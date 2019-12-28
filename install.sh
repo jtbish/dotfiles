@@ -1,32 +1,31 @@
 # -----------------------------------------------------------------------------
+# Setup
+# -----------------------------------------------------------------------------
+# pull in customisations for bash (access to env vars and funcs)
+source .bashrc_custom
+
+# -----------------------------------------------------------------------------
 # bash
 # -----------------------------------------------------------------------------
 echo "Backing up bashrc"
-cp ~/.bashrc ~/.bashrc.backup
+bu ~/.bashrc
 
 echo "Checking if customisations will be recognised by existing bashrc"
-add_customisations_cmd="source ~/.bashrc_customisations"
+add_customisations_cmd="source ~/.bashrc_custom"
 if ! grep -q "$add_customisations_cmd" ~/.bashrc; then
     echo "Customisations not recognised, modifying bashrc"
     echo "$add_customisations_cmd" >> ~/.bashrc
 fi
 
 echo "Making symlink to bashrc customisations"
-ln -sf $(readlink -f .bashrc_customisations) ~/.bashrc_customisations
-
-# source new bashrc for env vars used in following nvim section
-source ~/.bashrc
+ln -srf .bashrc_custom ~/.bashrc_custom
 
 # -----------------------------------------------------------------------------
 # nvim
 # -----------------------------------------------------------------------------
 echo "Backing up existing nvim environment"
-# remove old backups
-rm -rf $VIMCONFIG.backup
-rm -rf $VIMDATA.backup
-# make new backups
-cp -r $VIMCONFIG $VIMCONFIG.backup
-cp -r $VIMDATA $VIMDATA.backup
+bu $VIMCONFIG
+bu $VIMDATA
 
 echo "Creating clean nvim environment"
 rm -rf $VIMCONFIG
@@ -35,27 +34,36 @@ mkdir $VIMCONFIG
 mkdir $VIMDATA
 
 echo "Making symlink to nvim config"
-ln -sf $(readlink -f init.vim) $VIMCONFIG/init.vim
+ln -srf init.vim $VIMCONFIG/init.vim
 
 echo "Installing python packages for nvim"
 # python3 provider
-pip3 install --upgrade pynvim
+pip3 install --upgrade --user pynvim
 # packages for ALE
-pip3 install --upgrade flake8 isort yapf
+pip3 install --upgrade --user flake8 isort yapf
 
 echo "Installing minpac"
 mkdir -p $VIMCONFIG/pack/minpac/opt
 git clone https://github.com/k-takata/minpac.git \
 	$VIMCONFIG/pack/minpac/opt/minpac
 
-echo "Installing plugins"
+echo "Installing nvim plugins"
 nvim --headless +PackUpdateAndQuit
 
 # -----------------------------------------------------------------------------
 # tmux
 # -----------------------------------------------------------------------------
 echo "Backing up existing tmux config"
-cp ~/.tmux.conf ~/.tmux.conf.backup
+bu ~/.tmux.conf
 
 echo "Making symlink to tmux config"
-ln -sf $(readlink -f .tmux.conf) ~/.tmux.conf
+ln -srf .tmux.conf ~/.tmux.conf
+
+# -----------------------------------------------------------------------------
+# editorconfig
+# -----------------------------------------------------------------------------
+echo "Backing up existing editorconfig"
+bu ~/.editorconfig
+
+echo "Making symlink to editorconfig"
+ln -srf .editorconfig ~/.editorconfig

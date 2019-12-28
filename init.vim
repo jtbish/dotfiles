@@ -2,7 +2,7 @@
 " plugin manager
 " =============================================================================
 packadd minpac
-call minpac#init({'verbose': 3})
+call minpac#init({'verbose': 4})
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 " utility commands
@@ -17,6 +17,7 @@ command! PackUpdateAndQuit call minpac#update('', {'do': 'quit'})
 " =============================================================================
 call minpac#add('dense-analysis/ale')
 call minpac#add('altercation/vim-colors-solarized')
+call minpac#add('sgur/vim-editorconfig')
 
 " =============================================================================
 " plugin settings
@@ -78,16 +79,6 @@ set path+=**
 " -----------------------------------------------------------------------------
 " formatting
 " -----------------------------------------------------------------------------
-set textwidth=79
-" number of visual spaces per tab to display when reading a file
-set tabstop=4
-" number of spaces per tab when inserting tab while editing a file
-set softtabstop=4
-" tabs are spaces in insert mode
-set expandtab
-" number of columns to indent with reindent (<< and >>) operators,
-" plus automatic C-style indentation
-set shiftwidth=4
 " automatically indent to previous line's level on new line
 set autoindent
 
