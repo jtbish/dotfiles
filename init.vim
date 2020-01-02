@@ -26,7 +26,8 @@ call minpac#add('sgur/vim-editorconfig')
 " ale
 " -----------------------------------------------------------------------------
 let g:ale_linters = {
-\	'python': ['flake8']
+\	'python': ['flake8'],
+\   'sh': ['shellcheck']
 \}
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],

@@ -42,6 +42,17 @@ pip3 install --upgrade --user pynvim
 # packages for ALE
 pip3 install --upgrade --user flake8 isort yapf
 
+echo "Installing system packages for nvim"
+# shell check static analyser
+if grep -iq fedora /etc/*release; then
+    sudo dnf install ShellCheck
+elif grep -iq ubuntu /etc/*release; then
+    sudo apt install shellcheck
+else
+    echo "You aren't using Fedora or Ubuntu, so I don't know how to install
+    the shellcheck package. Sorry!"
+fi
+
 echo "Installing minpac"
 mkdir -p $VIMCONFIG/pack/minpac/opt
 git clone https://github.com/k-takata/minpac.git \
