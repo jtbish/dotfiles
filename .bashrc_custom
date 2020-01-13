@@ -1,5 +1,5 @@
 # =============================================================================
-# bashrc Customisations
+# General (all machines) settings
 # =============================================================================
 # -----------------------------------------------------------------------------
 # Aliases
@@ -9,10 +9,6 @@ alias ..="cd .."
 alias c="clear"
 alias l="ls"
 alias rmd="rm -rf"
-# hibernate on ubuntu
-alias hib="sudo systemctl hibernate"
-# use neovim instead of vim
-alias vim="nvim"
 
 # -----------------------------------------------------------------------------
 # Functions
@@ -30,20 +26,6 @@ bu () {
 }
 
 # -----------------------------------------------------------------------------
-# Neovim
-# -----------------------------------------------------------------------------
-export VIMCONFIG=~/.config/nvim
-export VIMDATA=~/.local/share/nvim
-export VISUAL='nvim'
-
-if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-    # change prompt to make nvim terminal easy to distinguish
-    export PS1="$PS1>> "
-    # avoid nvim nesting by printing a warning message
-    alias nvim='echo "No nesting!"'
-fi
-
-# -----------------------------------------------------------------------------
 # Other
 # -----------------------------------------------------------------------------
 # green bold text prompt
@@ -53,3 +35,29 @@ export PS1="\[\033[1;32m\][\u@\h \W]\$\[\033[0m\] "
 stty -ixon
 # modify trace output to have line number prefix
 PS4='$LINENO: '
+
+# =============================================================================
+# Local machine (non-cluster) settings
+# =============================================================================
+if [[ "$(hostname)" == "dingo" || "$(hostname)" == "pelican" ]]; then
+    # -----------------------------------------------------------------------------
+    # Aliases
+    # -----------------------------------------------------------------------------
+    alias hib="sudo systemctl hibernate"
+    # use neovim instead of vim
+    alias vim="nvim"
+
+    # -----------------------------------------------------------------------------
+    # Neovim
+    # -----------------------------------------------------------------------------
+    export VIMCONFIG=~/.config/nvim
+    export VIMDATA=~/.local/share/nvim
+    export VISUAL='nvim'
+
+    if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+        # change prompt to make nvim terminal easy to distinguish
+        export PS1="$PS1>> "
+        # avoid nvim nesting by printing a warning message
+        alias nvim='echo "No nesting!"'
+    fi
+fi
