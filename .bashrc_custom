@@ -29,7 +29,7 @@ bu () {
 # Other
 # -----------------------------------------------------------------------------
 # green bold text prompt
-export PS1="\[\033[1;32m\][\u@\h \W]\$\[\033[0m\] "
+export PS1="\[\033[1;32m\][\u@\h \w]\$\[\033[0m\] "
 # disable terminal emulator capturing ctrl-s (suspend) key code so forward
 # search can be used in bash
 stty -ixon
