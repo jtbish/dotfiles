@@ -78,3 +78,12 @@ bu ~/.editorconfig
 
 echo "Making symlink to editorconfig"
 ln -srf .editorconfig ~/.editorconfig
+
+# -----------------------------------------------------------------------------
+# gitconfig
+# -----------------------------------------------------------------------------
+echo "Backing up existing gitconfig"
+bu ~/.gitconfig
+
+echo "Making symlink to gitconfig"
+ln -srf .gitconfig ~/.gitconfig
