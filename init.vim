@@ -161,13 +161,3 @@ nnoremap <silent> [T :tfirst<CR>
 nnoremap <silent> ]T :tlast<CR>
 nnoremap <silent> [<C-T> :ptprevious<CR>
 nnoremap <silent> ]<C-T> :ptnext<CR>
-
-" =============================================================================
-" nvim specific settings
-" =============================================================================
-if has('nvim')
-    " get out of terminal mode using esc
-    tnoremap <Esc> <C-\><C-n>
-    " allow sending esc to underlying terminal program
-    tnoremap <C-v><Esc> <C-c>
-endif
