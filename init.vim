@@ -1,52 +1,54 @@
-" =============================================================================
-" plugin manager
-" =============================================================================
 packadd minpac
-call minpac#init({'verbose': 4})
-call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-" utility commands
-command! PackUpdate call minpac#update()
-command! PackClean call minpac#clean()
-command! PackStatus call minpac#status()
-" for headless plugin install
-command! PackUpdateAndQuit call minpac#update('', {'do': 'quit'})
+if exists('*minpac#init')
+    " =========================================================================
+    " plugin manager
+    " =========================================================================
+    call minpac#init({'verbose': 4})
+    call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-" =============================================================================
-" plugin sources
-" =============================================================================
-call minpac#add('dense-analysis/ale')
-call minpac#add('altercation/vim-colors-solarized')
-call minpac#add('sgur/vim-editorconfig')
+    " utility commands
+    command! PackUpdate call minpac#update()
+    command! PackClean call minpac#clean()
+    command! PackStatus call minpac#status()
+    " for headless plugin install
+    command! PackUpdateAndQuit call minpac#update('', {'do': 'quit'})
 
-" =============================================================================
-" plugin settings
-" =============================================================================
-" -----------------------------------------------------------------------------
-" ale
-" -----------------------------------------------------------------------------
-let g:ale_linters = {
-\	'python': ['flake8'],
-\   'sh': ['shellcheck']
-\}
-let g:ale_fixers = {
-\	'*': ['remove_trailing_lines', 'trim_whitespace'],
-\	'python': ['isort', 'yapf']
-\}
-nmap <F2> <Plug>(ale_fix)
-let g:ale_sign_column_always = 1
-" unimpaired.vim style mappings for traversing errors
-nmap <silent> [w <Plug>(ale_previous)
-nmap <silent> ]w <Plug>(ale_next)
-nmap <silent> [W <Plug>(ale_first)
-nmap <silent> ]W <Plug>(ale_last)
+    " =========================================================================
+    " plugin sources
+    " =========================================================================
+    call minpac#add('dense-analysis/ale')
+    call minpac#add('altercation/vim-colors-solarized')
+    call minpac#add('sgur/vim-editorconfig')
 
-" -----------------------------------------------------------------------------
-" solarized
-" -----------------------------------------------------------------------------
-syntax enable
-set background=dark
-colorscheme solarized
+    " =========================================================================
+    " plugin settings
+    " =========================================================================
+    " -------------------------------------------------------------------------
+    " ale
+    " -------------------------------------------------------------------------
+    let g:ale_linters = {
+    \	'python': ['flake8'],
+    \   'sh': ['shellcheck']
+    \}
+    let g:ale_fixers = {
+    \	'*': ['remove_trailing_lines', 'trim_whitespace'],
+    \	'python': ['isort', 'yapf']
+    \}
+    nmap <F2> <Plug>(ale_fix)
+    let g:ale_sign_column_always = 1
+    " unimpaired.vim style mappings for traversing errors
+    nmap <silent> [w <Plug>(ale_previous)
+    nmap <silent> ]w <Plug>(ale_next)
+    nmap <silent> [W <Plug>(ale_first)
+    nmap <silent> ]W <Plug>(ale_last)
+
+    " -------------------------------------------------------------------------
+    " solarized
+    " -------------------------------------------------------------------------
+    syntax enable
+    set background=dark
+    colorscheme solarized
 
 " =============================================================================
 " in-built settings
@@ -161,3 +163,4 @@ nnoremap <silent> [T :tfirst<CR>
 nnoremap <silent> ]T :tlast<CR>
 nnoremap <silent> [<C-T> :ptprevious<CR>
 nnoremap <silent> ]<C-T> :ptnext<CR>
+endif
