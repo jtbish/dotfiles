@@ -49,6 +49,7 @@ if exists('*minpac#init')
     syntax enable
     set background=dark
     colorscheme solarized
+endif
 
 " =============================================================================
 " in-built settings
@@ -163,4 +164,3 @@ nnoremap <silent> [T :tfirst<CR>
 nnoremap <silent> ]T :tlast<CR>
 nnoremap <silent> [<C-T> :ptprevious<CR>
 nnoremap <silent> ]<C-T> :ptnext<CR>
-endif

@@ -59,3 +59,10 @@ if [[ "$(hostname)" == "dingo" || "$(hostname)" == "pelican" ]]; then
     export VIMDATA=~/.local/share/nvim
     export VISUAL='nvim'
 fi
+
+# =============================================================================
+# Cluster settings
+# =============================================================================
+if [[ "$(hostname)" == "goliath.labs.eait.uq.edu.au" ]]; then
+    alias vim="~/nvim/usr/bin/nvim -u ~/dotfiles/init.vim"
+fi
