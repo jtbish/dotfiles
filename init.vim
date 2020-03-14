@@ -2,7 +2,7 @@ packadd minpac
 
 if exists('*minpac#init')
     " =========================================================================
-    " plugin manager
+    " local machine plugin settings
     " =========================================================================
     call minpac#init({'verbose': 4})
     call minpac#add('k-takata/minpac', {'type': 'opt'})
@@ -49,15 +49,31 @@ if exists('*minpac#init')
     syntax enable
     set background=dark
     colorscheme solarized
+else
+    " =========================================================================
+    " cluster plugin-less settings
+    " =========================================================================
+    colorscheme slate
+    " -------------------------------------------------------------------------
+    " formatting
+    " -------------------------------------------------------------------------
+    set textwidth=79
+    " number of visual spaces per tab to display when reading a file
+    set tabstop=4
+    " number of spaces per tab when inserting tab while editing a file
+    set softtabstop=4
+    " tabs are spaces in insert mode
+    set expandtab
+    " number of columns to indent with reindent (<< and >>) operators,
+    " plus automatic C-style indentation
+    set shiftwidth=4
+    " automatically indent to previous line's level on new line
+    set autoindent
 endif
 
 " =============================================================================
-" in-built settings
+" global settings
 " =============================================================================
-" -----------------------------------------------------------------------------
-" colour
-" -----------------------------------------------------------------------------
-colorscheme slate
 " -----------------------------------------------------------------------------
 " netrw
 " -----------------------------------------------------------------------------
