@@ -71,15 +71,6 @@ echo "Making symlink to tmux config"
 ln -srf .tmux.conf ~/.tmux.conf
 
 # -----------------------------------------------------------------------------
-# editorconfig
-# -----------------------------------------------------------------------------
-echo "Backing up existing editorconfig"
-bu ~/.editorconfig
-
-echo "Making symlink to editorconfig"
-ln -srf .editorconfig ~/.editorconfig
-
-# -----------------------------------------------------------------------------
 # gitconfig
 # -----------------------------------------------------------------------------
 echo "Backing up existing gitconfig"

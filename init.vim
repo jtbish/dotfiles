@@ -1,79 +1,67 @@
 packadd minpac
 
-if exists('*minpac#init')
-    " =========================================================================
-    " local machine plugin settings
-    " =========================================================================
-    call minpac#init({'verbose': 4})
-    call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#init({'verbose': 4})
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-    " utility commands
-    command! PackUpdate call minpac#update()
-    command! PackClean call minpac#clean()
-    command! PackStatus call minpac#status()
-    " for headless plugin install
-    command! PackUpdateAndQuit call minpac#update('', {'do': 'quit'})
+" utility commands
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()
+command! PackStatus call minpac#status()
+" for headless plugin install
+command! PackUpdateAndQuit call minpac#update('', {'do': 'quit'})
 
-    " =========================================================================
-    " plugin sources
-    " =========================================================================
-    call minpac#add('dense-analysis/ale')
-    call minpac#add('altercation/vim-colors-solarized')
-    call minpac#add('sgur/vim-editorconfig')
+" =========================================================================
+" plugin sources
+" =========================================================================
+call minpac#add('dense-analysis/ale')
+call minpac#add('altercation/vim-colors-solarized')
 
-    " =========================================================================
-    " plugin settings
-    " =========================================================================
-    " -------------------------------------------------------------------------
-    " ale
-    " -------------------------------------------------------------------------
-    let g:ale_linters = {
-    \	'python': ['flake8'],
-    \   'sh': ['shellcheck']
-    \}
-    let g:ale_fixers = {
-    \	'*': ['remove_trailing_lines', 'trim_whitespace'],
-    \	'python': ['isort', 'yapf']
-    \}
-    nmap <F2> <Plug>(ale_fix)
-    let g:ale_sign_column_always = 1
-    " unimpaired.vim style mappings for traversing errors
-    nmap <silent> [w <Plug>(ale_previous)
-    nmap <silent> ]w <Plug>(ale_next)
-    nmap <silent> [W <Plug>(ale_first)
-    nmap <silent> ]W <Plug>(ale_last)
+" =========================================================================
+" plugin settings
+" =========================================================================
+" -------------------------------------------------------------------------
+" ale
+" -------------------------------------------------------------------------
+let g:ale_linters = {
+\	'python': ['flake8'],
+\   'sh': ['shellcheck']
+\}
+let g:ale_fixers = {
+\	'*': ['remove_trailing_lines', 'trim_whitespace'],
+\	'python': ['isort', 'yapf']
+\}
+nmap <F2> <Plug>(ale_fix)
+let g:ale_sign_column_always = 1
+" unimpaired.vim style mappings for traversing errors
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> ]W <Plug>(ale_last)
 
-    " -------------------------------------------------------------------------
-    " solarized
-    " -------------------------------------------------------------------------
-    syntax enable
-    set background=dark
-    colorscheme solarized
-else
-    " =========================================================================
-    " cluster plugin-less settings
-    " =========================================================================
-    colorscheme slate
-    " -------------------------------------------------------------------------
-    " formatting
-    " -------------------------------------------------------------------------
-    set textwidth=79
-    " number of visual spaces per tab to display when reading a file
-    set tabstop=4
-    " number of spaces per tab when inserting tab while editing a file
-    set softtabstop=4
-    " tabs are spaces in insert mode
-    set expandtab
-    " number of columns to indent with reindent (<< and >>) operators,
-    " plus automatic C-style indentation
-    set shiftwidth=4
-    " automatically indent to previous line's level on new line
-    set autoindent
-endif
+" -------------------------------------------------------------------------
+" solarized
+" -------------------------------------------------------------------------
+syntax enable
+set background=dark
+"colorscheme solarized
+colorscheme slate
 
-" =============================================================================
-" global settings
-" =============================================================================
+" -------------------------------------------------------------------------
+" formatting
+" -------------------------------------------------------------------------
+set textwidth=79
+" number of visual spaces per tab to display when reading a file
+set tabstop=4
+" number of spaces per tab when inserting tab while editing a file
+set softtabstop=4
+" tabs are spaces in insert mode
+set expandtab
+" number of columns to indent with reindent (<< and >>) operators,
+" plus automatic C-style indentation
+set shiftwidth=4
+" automatically indent to previous line's level on new line
+set autoindent
+
 " -----------------------------------------------------------------------------
 " netrw
 " -----------------------------------------------------------------------------
@@ -99,12 +87,6 @@ set splitbelow
 set wildmenu
 " search for matching files recursively under current directory
 set path+=**
-
-" -----------------------------------------------------------------------------
-" formatting
-" -----------------------------------------------------------------------------
-" automatically indent to previous line's level on new line
-set autoindent
 
 " -----------------------------------------------------------------------------
 " navigation
