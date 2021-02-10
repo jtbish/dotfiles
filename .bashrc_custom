@@ -41,15 +41,19 @@ stty -ixon
 # modify trace output to have line number prefix
 PS4='$LINENO: '
 
-# =============================================================================
-# Local machine (non-cluster) settings
-# =============================================================================
-if [[ "$(hostname)" == "dingo" || "$(hostname)" == "pelican" ]]; then
+if [[ "$(hostname)" == "goliath.labs.eait.uq.edu.au" ]]; then
+    # =========================================================================
+    # Cluster settings
+    # =========================================================================
+    alias vim="~/nvim/usr/bin/nvim -u ~/dotfiles/init.vim"
+else
+    # =========================================================================
+    # Local machine (non-cluster) settings
+    # =========================================================================
     # -----------------------------------------------------------------------------
     # Aliases
     # -----------------------------------------------------------------------------
     alias hib="sudo systemctl hibernate"
-    # use neovim instead of vim
     alias vim="nvim"
 
     # -----------------------------------------------------------------------------
@@ -58,11 +62,4 @@ if [[ "$(hostname)" == "dingo" || "$(hostname)" == "pelican" ]]; then
     export VIMCONFIG=~/.config/nvim
     export VIMDATA=~/.local/share/nvim
     export VISUAL='nvim'
-fi
-
-# =============================================================================
-# Cluster settings
-# =============================================================================
-if [[ "$(hostname)" == "goliath.labs.eait.uq.edu.au" ]]; then
-    alias vim="~/nvim/usr/bin/nvim -u ~/dotfiles/init.vim"
 fi
