@@ -23,12 +23,12 @@ call minpac#add('altercation/vim-colors-solarized')
 " ale
 " -------------------------------------------------------------------------
 let g:ale_linters = {
-\	'python': ['flake8'],
+\   'python': ['flake8'],
 \   'sh': ['shellcheck']
 \}
 let g:ale_fixers = {
-\	'*': ['remove_trailing_lines', 'trim_whitespace'],
-\	'python': ['isort', 'yapf']
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['isort', 'yapf']
 \}
 nmap <F2> <Plug>(ale_fix)
 let g:ale_sign_column_always = 1
@@ -43,8 +43,7 @@ nmap <silent> ]W <Plug>(ale_last)
 " -------------------------------------------------------------------------
 syntax enable
 set background=dark
-"colorscheme solarized
-colorscheme slate
+colorscheme solarized
 
 " -------------------------------------------------------------------------
 " formatting
