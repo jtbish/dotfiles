@@ -1,7 +1,0 @@
-[user]
-    email = jordanbishop26@gmail.com
-    name = Jordan Bishop
-[merge]
-    tool = vimdiff
-[alias]
-    lg = log --oneline --decorate --graph --all
